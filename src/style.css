@@ -1,0 +1,255 @@
+:root {
+  /* Colors */
+  --white: #ffffff;
+  --grey: #899d9d;
+  --red: #e24949;
+  --bg: #1d2f30;
+  --bg-linear: rgba(29, 47, 48, .7);
+  --bg-shade: #0b1919;
+  --green-text: #506829;
+  --primary: #bae249;
+  --green-active: #688b05;
+  --green-focus: #83a440;
+  --green-hover: #91ac46;
+}
+
+/* Стили */
+@font-face {
+  font-family: "Open-Sans";
+  src: url("./assets/fonts/OpenSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open-Sans";
+  src: url("./assets/fonts/OpenSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open-Sans";
+  src: url("./assets/fonts/OpenSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant";
+  src: url("./assets/fonts/Cormorant-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant-Italic";
+  src: url("./assets/fonts/Cormorant-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  width: 100%;
+  font-family: "Open-Sans", Arial sans-serif;
+}
+
+#app {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-family: "Cormorant", Arial, sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.h1-mobile {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  padding-inline: 165px;
+}
+
+/* 
+  HEADER 
+*/
+.header {
+  padding: 20px 0;
+  background-color: var(--bg);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar {
+  margin-left: 125px;
+}
+
+nav ul {
+  display: flex;
+  column-gap: 64px;
+}
+
+nav ul li a {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--white);
+}
+
+nav ul li a:hover {
+  color: var(--primary);
+}
+
+nav ul li a:active {
+  color: var(--green-active);
+}
+
+nav ul li a:focus {
+  outline: none;
+}
+
+nav ul li a:focus-visible {
+  outline: 1px solid var(--green-focus);
+  outline-offset: 1px;
+}
+
+.header__features {
+  height: 24px;
+  display: flex;
+  justify-content: end;
+  column-gap: 64px;
+  flex: 1;
+}
+
+/* 
+  CARD
+ */
+.start__description {
+  background: linear-gradient(var(--bg-linear), var(--bg-linear)),
+    url("./assets/images/background.jpg") center / cover no-repeat;
+}
+
+.start__description .container {
+  max-width: 688px;
+  display: flex;
+  row-gap: 22px;
+  flex-direction: column;
+}
+
+.start__description p {
+  max-width: 625px;
+  text-align: left;
+}
+
+.start__description:has(h1, p) {
+  color: var(--white);
+}
+
+/* 
+  Artefacts
+*/
+.artefacts {
+  padding: 60px 0;
+  background-color: var(--bg);
+}
+
+.artefacts .container {
+  padding-inline: 165px;
+}
+
+/* 
+  Input-ы
+*/
+input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11.5px 0;
+  padding-inline: 16px;
+  border: 0;
+  background-color: var(--white);
+  color: var(--bg-shade);
+  font-family: "Open-Sans";
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.375;
+}
+
+::placeholder {
+  font-weight: 400;
+  color: var(--grey);
+}
+
+input[type="text"]:focus {
+  outline: 0;
+  background-color: var(--grey);
+}
+
+input[type="text"]:focus::placeholder {
+  color: var(--white);
+}
+
+/* Возможное решение смены цвета - событие через JS */
+input[type="text"]:focus-visible {
+  background-color: var(--white);
+  outline: 1px solid var(--green-focus);
+  outline-offset: 3px;
+}
+
+/* 
+  Адаптив 
+*/
+@media screen and (max-width: 1440px) {
+}
+@media screen and (max-width: 1024px) {
+  /* #app {
+    max-width: 768px;
+  } */
+  .header nav {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 425px) {
+}
