@@ -90,6 +90,13 @@ h1 {
   line-height: 1;
 }
 
+h3 {
+  font-family: "Cormorant";
+  font-size: 1.5rem;
+  font-weight: 1.5;
+  color: var(--white);
+}
+
 p {
   font-size: 1rem;
   line-height: 1.5;
@@ -135,7 +142,7 @@ a {
 }
 
 .explore::after {
-  width: 8px; 
+  width: 8px;
   height: 8px;
   border-top: 2px solid currentColor;
   border-right: 2px solid currentColor;
@@ -145,7 +152,7 @@ a {
 
 .explore::before {
   width: 43px;
-  height: 2px; 
+  height: 2px;
   bottom: 10px;
   background: currentColor;
 }
@@ -245,7 +252,6 @@ button:where(.search, .login) {
 }
 
 .start__description .container {
-  /* подумать насчет этого */
   max-width: 688px;
   display: flex;
   row-gap: 22px;
@@ -269,12 +275,75 @@ button:where(.search, .login) {
   background-color: var(--bg);
 }
 
-.artefacts .container {
-  padding-inline: 165px;
-}
-
 .artefact__card {
   width: 255px;
+}
+
+.artefact__img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-shade);
+  padding: 30px 0;
+}
+
+.artefact__content {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 313px;
+  border: 1px solid var(--bg-shade);
+  padding: 16px 16px 24px 16px;
+}
+
+.artefact__content h3 {
+  margin-bottom: 8px;
+}
+
+.artefact__content p {
+  margin-bottom: 10px;
+  color: var(--grey);
+}
+
+/* Кнопки */
+
+button[class="artefact__detail"] {
+  box-sizing: border-box;
+  align-self: baseline;
+  outline: 0;
+  background-color: transparent;
+  margin-top: auto;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-height: 45px;
+  padding: 10.5px 28.5px;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+button[class="artefact__detail"]:hover {
+  background-color: var(--primary);
+  color: var(--bg-shade);
+}
+
+button[class="artefact__detail"]:focus-visible {
+  outline: 1px solid var(--green-focus);
+  outline-offset: 3px;
+}
+
+button[class="artefact__detail"]:active {
+  border: 1px solid transparent;
+  background-color: var(--green-active);
+  color: var(--bg-shade);
+}
+
+button[class="artefact__detail"]:disabled,
+button[class="artefact__detail"]:disabled:hover,
+button[class="artefact__detail"]:disabled:active {
+  cursor: not-allowed;
+  border: 1px solid var(--grey);
+  color: var(--grey);
+  background-color: transparent;
 }
 
 /* 
@@ -336,6 +405,13 @@ input[type="text"]:focus-visible {
     display: none;
   }
 }
+
+@media (min-width: 425px) {
+  .container {
+    padding-inline: calc(32px + (100vw - 425px) * (165 - 32) / (1440 - 425));
+  }
+}
+
 @media screen and (max-width: 425px) {
   .container {
     padding-inline: 32px;
