@@ -1,6 +1,8 @@
+import { cardItems } from "@/data/data.js";
 import Swiper from "swiper";
 import "swiper/css";
-import { cardItems } from "@/data/data.js";
+import { Pagination } from "swiper/modules";
+import 'swiper/css/pagination';
 
 const slider = document.querySelector(".swiper-wrapper");
 
@@ -29,15 +31,19 @@ cardItems.map((card) => {
 });
 
 const swiper = new Swiper(".swiper", {
-  // modules: [],
-  slidesPerView: 1,
+  modules: [Pagination],
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  },
+  slidesPerView: 'auto',
   // Не итоговые брейкпоинты
   breakpoints: {
     475: {slidesPerView: 1},
-    768: {slidesPerView: 2},
-    1100: {slidesPerView: 3},
-    1370: {slidesPerView: 4},
+    700: {slidesPerView: 2, spaceBetween: 50},
+    1075: {slidesPerView: 3, spaceBetween: 50},
+    1370: {slidesPerView: 4, spaceBetween: 10},
   },
-  spaceBetween: 30,
+  slidesPerView: 30,
   loop: true,
 });

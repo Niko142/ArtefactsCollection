@@ -85,9 +85,12 @@ h1 {
   line-height: 1;
 }
 
-.h1-mobile {
+h2 {
+  font-family: "Cormorant";
+  font-style: italic;
   font-size: 3rem;
-  line-height: 1;
+  font-weight: 1;
+  color: var(--white);
 }
 
 h3 {
@@ -132,6 +135,10 @@ a {
   line-height: 1.4375;
 }
 
+.explore.color-black {
+  color: var(--bg-shade);
+}
+
 .explore::after,
 .explore::before {
   content: "";
@@ -162,6 +169,10 @@ a {
   color: var(--green-hover);
 }
 
+.explore.color-black:hover {
+  color: var(--green-active);
+}
+
 .explore:hover::before {
   width: 53px;
 }
@@ -174,6 +185,10 @@ a {
 .explore:active {
   width: 160px;
   color: var(--green-active);
+}
+
+.explore.color-black:active {
+  color: var(--bg-shade);
 }
 
 .explore:active::before {
@@ -276,6 +291,7 @@ button:where(.search, .login) {
 }
 
 .artefact__card {
+  box-sizing: border-box;
   width: 255px;
 }
 
@@ -303,6 +319,29 @@ button:where(.search, .login) {
 .artefact__content p {
   margin-bottom: 10px;
   color: var(--grey);
+}
+
+/* 
+  Pagination
+*/
+
+.swiper {
+  overflow: hidden;
+}
+
+.swiper-pagination {
+  margin-top: 9px;
+  align-items: center;
+  position: unset !important;
+}
+
+.swiper-pagination-bullet {
+  background: var(--bg-shade) !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--green-active) !important;
 }
 
 /* Кнопки */
@@ -347,6 +386,50 @@ button[class="artefact__detail"]:disabled:active {
 }
 
 /* 
+  Novelty 
+*/
+
+.novelty {
+  padding-bottom: 60px;
+  background-color: var(--bg);
+}
+
+.novelty__content {
+  display: grid;
+  grid-template-columns: 1fr 255px;
+  gap: 30px;
+}
+
+.novelty h2 {
+  margin-bottom: 33px;
+}
+
+.novelty__gallery {
+  background-color: var(--bg-shade);
+}
+
+aside {
+  display: flex;
+  min-height: 493px;
+  flex-direction: column;
+  padding: 18px 16px 25px 16px;
+  background-color: var(--primary);
+}
+
+aside h3 {
+  color: var(--bg-shade);
+  margin-bottom: 6px;
+}
+
+aside p {
+  color: var(--green-text);
+}
+
+aside .explore {
+  margin-top: auto;
+}
+
+/* 
   Input-ы
 */
 input[type="text"] {
@@ -387,6 +470,7 @@ input[type="text"]:focus-visible {
 /* 
   Адаптив 
 */
+
 @media screen and (max-width: 1440px) {
 }
 @media screen and (max-width: 1150px) {
@@ -397,12 +481,35 @@ input[type="text"]:focus-visible {
     display: none;
   }
 }
+
+@media screen and (max-width: 1075px) {
+  .swiper-slide:first-child {
+    margin-left: 50px;
+  }
+}
+
+@media screen and (max-width: 875px) {
+  .swiper-slide:first-child {
+    margin-left: 0;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .container {
     padding-inline: 50px;
   }
   .start__description p {
     display: none;
+  }
+
+  .swiper-slide:first-child {
+    margin-left: 0;
+  }
+
+  /* подумать насчет размера */
+  .novelty__content {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
   }
 }
 
@@ -413,6 +520,11 @@ input[type="text"]:focus-visible {
 }
 
 @media screen and (max-width: 425px) {
+  h1 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
   .container {
     padding-inline: 32px;
   }
