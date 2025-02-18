@@ -86,7 +86,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Cormorant";
+  font-family: "Cormorant-Italic";
   font-style: italic;
   font-size: 3rem;
   font-weight: 1;
@@ -252,9 +252,25 @@ nav ul li a:focus-visible {
 }
 
 button:where(.search, .login) {
+  outline: 0;
   cursor: pointer;
   background-color: transparent;
   border: 0;
+}
+
+button[class="search"]:hover .search-img,
+button[class="login"]:hover .login-img {
+  stroke: var(--green-hover);
+}
+
+button[class="search"]:active .search-img,
+button[class="login"]:active .login-img {
+  stroke: var(--green-active);
+}
+
+button:where(.search, .login):focus-visible {
+  outline: 1px solid var(--green-focus);
+  outline-offset: 1px;
 }
 
 /* 
@@ -385,6 +401,39 @@ button[class="artefact__detail"]:disabled:active {
   background-color: transparent;
 }
 
+button[class="form__btn"] {
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
+  padding: 11.5px 26px;
+  color: var(--bg-shade);
+  background-color: var(--primary);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.375;
+}
+
+button[class="form__btn"]:hover {
+  background-color: var(--green-hover);
+}
+
+button[class="form__btn"]:focus-visible {
+  outline: 1px solid var(--green-focus);
+  outline-offset: 3px;
+}
+
+button[class="form__btn"]:active {
+  background-color: var(--green-active);
+}
+
+button[class="form__btn"]:disabled,
+button[class="form__btn"]:disabled:hover,
+button[class="form__btn"]:disabled:active {
+  cursor: not-allowed;
+  background-color: var(--grey);
+  opacity: 0.5;
+}
+
 /* 
   Novelty 
 */
@@ -430,9 +479,41 @@ aside .explore {
 }
 
 /* 
+  Feedback-block
+*/
+
+.feedback {
+  padding: 60px 0;
+  background: linear-gradient(var(--bg-linear), var(--bg-linear)),
+    url("./assets/images/bg_feedback.jpg") center / cover no-repeat;
+}
+
+.feedback h2 {
+  margin-bottom: 16px;
+}
+
+.feedback p {
+  max-width: 825px;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 350px;
+}
+
+.form__btn {
+  align-self: baseline;
+}
+
+/* 
   Input-ы
 */
-input[type="text"] {
+input[type="text"],
+input[type="email"] {
   width: 100%;
   box-sizing: border-box;
   padding: 11.5px 0;
@@ -451,21 +532,23 @@ input[type="text"] {
   color: var(--grey);
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="email"]:focus {
   outline: 0;
   background-color: var(--grey);
 }
 
-input[type="text"]:focus::placeholder {
+input[type="text"]:focus::placeholder,
+input[type="email"]:focus::placeholder {
   color: var(--white);
 }
 
 /* Возможное решение смены цвета - событие через JS */
-input[type="text"]:focus-visible {
+/* input[type="text"]:focus-visible {
   background-color: var(--white);
   outline: 1px solid var(--green-focus);
   outline-offset: 3px;
-}
+} */
 
 /* 
   Адаптив 
