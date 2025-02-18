@@ -196,6 +196,10 @@ a {
   color: var(--green-active);
 }
 
+.explore.color-black:active::before {
+  color: var(--bg-shade);
+}
+
 /* 
   HEADER 
 */
@@ -549,6 +553,65 @@ input[type="email"]:focus::placeholder {
   outline: 1px solid var(--green-focus);
   outline-offset: 3px;
 } */
+
+/* 
+  footer 
+*/
+
+.links {
+  background-color: var(--bg-shade);
+  padding: 18px 0;
+  /* margin: 0 auto; */
+}
+
+.links__block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.links__block li a {
+  outline: 0;
+  display: flex; /* или inline-flex */
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.links__block li a:focus-visible {
+  outline: 1px solid var(--green-focus);
+}
+
+.fa-brands {
+  outline: 0;
+  color: var(--grey);
+}
+
+.fa-brands:hover {
+  color: var(--primary);
+}
+
+.fa-brands:active {
+  color: var(--green-active);
+}
+
+i:where(.icons-youtube, .icons-instagram, .icons-facebook, .icons-twitter) {
+  font-size: 18px !important;
+}
+
+.rights {
+  padding: 3px 0;
+  background-color: var(--bg);
+}
+
+.rights p {
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: var(--grey);
+}
 
 /* 
   Адаптив 
