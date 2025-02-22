@@ -16,6 +16,7 @@ import lilium from "@assets/images/gallery/lilium.svg";
 export const cardItems = [
   {
     id: 1,
+    label: '2.4',
     image: plant,
     title: "Fig. 1 (plant)",
     text: `Имеется спорная точка зрения, гласящая примерно следующее: 
@@ -23,6 +24,7 @@ export const cardItems = [
   },
   {
     id: 2,
+    label: '3.1',
     image: flower,
     title: "Fig. 2 (flower)",
     text: `Прежде всего, синтетическое тестирование влечет за собой 
@@ -30,6 +32,7 @@ export const cardItems = [
   },
   {
     id: 3,
+    label: '1.2',
     image: leaf,
     title: "Fig. 3 (leaf)",
     text: `Лишь непосредственные участники прогресса неоднозначны и 
@@ -37,6 +40,7 @@ export const cardItems = [
   },
   {
     id: 4,
+    label: '1.4',
     image: wood,
     title: "Fig. 4 (wood)",
     text: `Базовый вектор развития не даёт нам иного выбора, 

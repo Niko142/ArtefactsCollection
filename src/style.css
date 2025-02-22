@@ -71,11 +71,6 @@ body {
   font-family: "Open-Sans", Arial sans-serif;
 }
 
-/* #app {
-  margin: 0 auto;
-  max-width: 1440px;
-} */
-
 :is(h1, h2, h3, h4, h5, h6) {
   font-family: "Cormorant", Arial, sans-serif;
   font-weight: 700;
@@ -137,6 +132,7 @@ a {
 }
 
 .explore.color-black {
+  width: 10.375rem;
   color: var(--bg-shade);
 }
 
@@ -171,6 +167,7 @@ a {
 }
 
 .explore.color-black:hover {
+  width: 176px;
   color: var(--green-active);
 }
 
@@ -184,11 +181,12 @@ a {
 }
 
 .explore:active {
-  width: 160px;
+  width: 10rem;
   color: var(--green-active);
 }
 
 .explore.color-black:active {
+  width: 10.375rem;
   color: var(--bg-shade);
 }
 
@@ -460,10 +458,12 @@ button[class="form__btn"]:disabled:active {
 
 .novelty__gallery {
   display: grid;
+  max-width: 1000px;
   grid-template-columns: 110px 49px 120px 50px 51px 95px 157px 53px 119px;
   grid-template-rows: 150px 293px;
   row-gap: 18px;
   box-sizing: border-box;
+  overflow-x: auto;
   overflow: hidden;
   padding: 16px;
   background-color: var(--bg-shade);
@@ -573,9 +573,6 @@ aside .explore {
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
   max-width: 350px;
 }
 
@@ -613,16 +610,33 @@ input[type="email"]:focus {
 }
 
 input[type="text"]:focus::placeholder,
-input[type="email"]:focus::placeholder {
+input[type="email"]:focus::placeholder,
+.invalid::placeholder {
   color: var(--white);
 }
 
-/* Возможное решение смены цвета - событие через JS */
-/* input[type="text"]:focus-visible {
-  background-color: var(--white);
-  outline: 1px solid var(--green-focus);
-  outline-offset: 3px;
+.form__error {
+  display: block;
+  transform: translate(16px, -3px);
+  font-size: 0.75rem;
+  line-height: 1.333333333;
+  color: var(--red);
+}
+
+/* Можно будет добавить */
+/* .form__error.error-active {
+  display: block;
 } */
+
+.form__input {
+  margin-bottom: 24px;
+}
+
+.form__input.invalid {
+  background-color: var(--grey);
+  /* color: var(--bg-shade); */
+  border: 1px solid var(--red);
+}
 
 /* 
   footer 
@@ -643,9 +657,10 @@ input[type="email"]:focus::placeholder {
 
 .links__block li a {
   outline: 0;
-  display: flex; /* или inline-flex */
+  display: flex;
   align-items: center;
   justify-content: center;
+  cursor: default;
   width: 24px;
   height: 24px;
 }
@@ -655,6 +670,7 @@ input[type="email"]:focus::placeholder {
 }
 
 .fa-brands {
+  cursor: pointer;
   outline: 0;
   color: var(--grey);
 }
@@ -690,9 +706,6 @@ i:where(.icons-youtube, .icons-instagram, .icons-facebook, .icons-twitter) {
 @media screen and (max-width: 1440px) {
 }
 @media screen and (max-width: 1150px) {
-  /* #app {
-    max-width: 768px;
-  } */
   .header nav {
     display: none;
   }

@@ -1,129 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.6.0/css/all.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Коллекция природных артефактов</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Коллекция природных артефактов</title>
-</head>
-
-<body>
-  <div id="app">
-    <header class="header">
-      <div class="container">
-        <div class="header__logo">
-          <img src="./src/assets/images/logo.svg" alt="Logo" />
-        </div>
-        <nav class="navbar">
-          <ul>
-            <li><a href="/#">Каталог</a></li>
-            <li><a href="/#">Галерея</a></li>
-            <li><a href="/#">О лаборатории</a></li>
-            <li><a href="/#">Контакты</a></li>
-          </ul>
-        </nav>
-        <div class="header__features">
-          <button class="search" role="Поиск по наименованиям">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="search-img"
-                d="M13 19C8.58172 19 5 15.4183 5 11C5 6.58172 8.58172 3 13 3C17.4183 3 21 6.58172 21 11C21 15.4183 17.4183 19 13 19Z"
-                stroke="#BAE249" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path class="search-img" d="M2.99998 21L7.34998 16.65" stroke="#BAE249" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-          <button class="login" role="Регистрация на сайте">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="login-img"
-                d="M15 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H15"
-                stroke="#BAE249" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path class="login-img" d="M10 17L15 12L10 7" stroke="#BAE249" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path class="login-img" d="M15 12H3" stroke="#BAE249" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </header>
-    <div class="start__description" id="desc">
-      <div class="container">
-        <h1>Крупнейшая коллекция природных артефактов</h1>
-        <p>
-          Являясь всего лишь частью общей картины, интерактивные прототипы,
-          которые представляют собой яркий пример европейского типа
-          политической и социальной культуры.
-        </p>
-        <a class="explore" href="#artefacts">Исследовать</a>
-      </div>
-    </div>
-    <section class="artefacts" id="artefacts">
-      <div class="container">
-        <div class="swiper">
-          <div class="swiper-wrapper"></div>
-          <div class="swiper-pagination">
+  <body>
+    <div id="app">
+      <header class="header">
+        <div class="container">
+          <div class="header__logo">
+            <img src="./src/assets/images/logo.svg" alt="Logo" />
+          </div>
+          <nav class="navbar">
+            <ul>
+              <li><a href="/#">Каталог</a></li>
+              <li><a href="/#">Галерея</a></li>
+              <li><a href="/#">О лаборатории</a></li>
+              <li><a href="/#">Контакты</a></li>
+            </ul>
+          </nav>
+          <div class="header__features">
+            <button class="search" role="Поиск по наименованиям">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="search-img"
+                  d="M13 19C8.58172 19 5 15.4183 5 11C5 6.58172 8.58172 3 13 3C17.4183 3 21 6.58172 21 11C21 15.4183 17.4183 19 13 19Z"
+                  stroke="#BAE249"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  class="search-img"
+                  d="M2.99998 21L7.34998 16.65"
+                  stroke="#BAE249"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <button class="login" role="Регистрация на сайте">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="login-img"
+                  d="M15 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H15"
+                  stroke="#BAE249"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  class="login-img"
+                  d="M10 17L15 12L10 7"
+                  stroke="#BAE249"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  class="login-img"
+                  d="M15 12H3"
+                  stroke="#BAE249"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="novelty" id="novelty">
-      <div class="container">
-        <h2>Новые артефакты</h2>
-        <div class="novelty__content">
-          <figure class="novelty__gallery">
-          </figure>
-          <aside>
-            <h3>Kurische Nehrung 24</h3>
-            <p>
-              Вот вам яркий пример современных тенденций - начало повседневной
-              работы по формированию позиции выявляет срочную потребность
-              методов управления процессами.<br /><br />Есть над чем задуматься:
-              представители современных социальных резервов своевременно
-              верифицированы.
-            </p>
-            <a class="explore color-black" href="#feedback">Исследовать</a>
-          </aside>
+      </header>
+      <div class="start__description" id="desc">
+        <div class="container">
+          <h1>Крупнейшая коллекция природных артефактов</h1>
+          <p>
+            Являясь всего лишь частью общей картины, интерактивные прототипы,
+            которые представляют собой яркий пример европейского типа
+            политической и социальной культуры.
+          </p>
+          <a class="explore" href="#artefacts">Исследовать</a>
         </div>
       </div>
-    </section>
-    <section class="feedback" id="feedback">
-      <div class="container">
-        <h2>Помочь проекту</h2>
-        <p>
-          Равным образом, экономическая повестка сегодняшнего дня не даёт нам иного выбора, кроме определения прогресса
-          профессионального сообщества. Как принято считать, элементы политического процесса рассмотрены исключительно в
-          разрезе маркетинговых и финансовых предпосылок.
-        </p>
-        <form action="" class="form">
-          <input type="text" placeholder="Имя" />
-          <input type="email" placeholder="Email" />
-          <button type="submit" class="form__btn">Отправить</button>
-        </form>
-      </div>
-    </section>
-    <footer class="footer" id="networks">
-      <div class="links">
-        <ul class="links__block">
-          <li>
-            <a href="https://youtube.com" target="_blank"><i class="icons-youtube fa-brands fa-youtube"></i></a>
-          </li>
-          <li>
-            <a href="https://instagram.com" target="_blank"><i class="icons-instagram fa-brands fa-instagram"></i></a>
-          </li>
-          <li>
-            <a href="https://facebook.com" target="_blank"><i class="icons-facebook fa-brands fa-square-facebook"></i></a>
-          </li>
-          <li><a href="https://x.com" target="_blank"><i class="icons-twitter fa-brands fa-twitter"></i></a></li>
-        </ul>
-      </div>
-      <div class="rights">
-        <p>f&b ® 2020</p>
-      </div>
-    </footer>
-  </div>
-  <script type="module" src="/src/main.js"></script>
-</body>
-
+      <section class="artefacts" id="artefacts">
+        <div class="container">
+          <div class="swiper">
+            <div class="swiper-wrapper"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <section class="novelty" id="novelty">
+        <div class="container">
+          <h2>Новые артефакты</h2>
+          <div class="novelty__content">
+            <figure class="novelty__gallery"></figure>
+            <aside>
+              <h3>Kurische Nehrung 24</h3>
+              <p>
+                Вот вам яркий пример современных тенденций - начало повседневной
+                работы по формированию позиции выявляет срочную потребность
+                методов управления процессами.<br /><br />Есть над чем
+                задуматься: представители современных социальных резервов
+                своевременно верифицированы.
+              </p>
+              <a class="explore color-black" href="#feedback">Читать далее</a>
+            </aside>
+          </div>
+        </div>
+      </section>
+      <section class="feedback" id="feedback">
+        <div class="container">
+          <h2>Помочь проекту</h2>
+          <p>
+            Равным образом, экономическая повестка сегодняшнего дня не даёт нам
+            иного выбора, кроме определения прогресса профессионального
+            сообщества. Как принято считать, элементы политического процесса
+            рассмотрены исключительно в разрезе маркетинговых и финансовых
+            предпосылок.
+          </p>
+          <form action="" class="form" novalidate>
+            <span class="form__error"></span>
+            <input
+              class="form__input"
+              type="text"
+              name="name"
+              placeholder="Имя"
+            />
+            <span class="form__error"></span>
+            <input
+              class="form__input"
+              type="email"
+              name="email"
+              placeholder="Email"
+            />
+            <button type="submit" class="form__btn">Отправить</button>
+          </form>
+        </div>
+      </section>
+      <footer class="footer" id="networks">
+        <div class="links">
+          <ul class="links__block">
+            <li>
+              <a href="https://youtube.com" target="_blank"
+                ><i class="icons-youtube fa-brands fa-youtube"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://instagram.com" target="_blank"
+                ><i class="icons-instagram fa-brands fa-instagram"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://facebook.com" target="_blank"
+                ><i class="icons-facebook fa-brands fa-square-facebook"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://x.com" target="_blank"
+                ><i class="icons-twitter fa-brands fa-twitter"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="rights">
+          <p>f&b ® 2020</p>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
