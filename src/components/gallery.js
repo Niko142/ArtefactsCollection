@@ -2,13 +2,27 @@ import { artefactItems } from "@/data/data";
 
 const galleryWrapper = document.querySelector("figure.novelty__gallery");
 
-const artefactEl = (id, x, y, label, img, alt) => {
+const artefactEl = (id, x, y, label, img, alt, width, height) => {
   return `
     <div class='artefact__item item-${id}'>
         <span class='artefact__indicator' style="left: ${x}px; top: ${y}px">${label}</span>
-        <img src='${img}' alt='${alt}'/>
+        <img src='${img}' alt='${alt}' width=${width} height=${height} loading="lazy"/>
     </div>
     `;
-}
+};
 
-artefactItems.map((item) => galleryWrapper.insertAdjacentHTML('beforeend', artefactEl(item.id, item.x, item.y, item.label, item.image, item.alt)));
+artefactItems.map((item) =>
+  galleryWrapper.insertAdjacentHTML(
+    "beforeend",
+    artefactEl(
+      item.id,
+      item.x,
+      item.y,
+      item.label,
+      item.image,
+      item.alt,
+      item.width,
+      item.height
+    )
+  )
+);

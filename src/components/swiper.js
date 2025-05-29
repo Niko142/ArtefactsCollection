@@ -6,13 +6,13 @@ import "swiper/css/pagination";
 
 const slider = document.querySelector(".swiper-wrapper");
 
-const artefactCard = (label, image, title, text) => {
+const artefactCard = (label, image, alt, width, height, title, text) => {
   return `
       <div class="swiper-slide">
         <article class='artefact__card'>
           <div class='artefact__img'>
             <span class='artefact__indicator' style="left: 16px; top: 16px">${label}</span>
-            <img src='${image}'/>
+            <img src='${image}' alt=${alt} width=${width} height=${height} loading="lazy"/>
           </div>
           <div class='artefact__content'>
             <h3>${title}</h3>
@@ -27,7 +27,15 @@ const artefactCard = (label, image, title, text) => {
 cardItems.map((card) => {
   return slider.insertAdjacentHTML(
     "beforeend",
-    artefactCard(card.label, card.image, card.title, card.text)
+    artefactCard(
+      card.label,
+      card.image,
+      card.alt,
+      card.width,
+      card.height,
+      card.title,
+      card.text
+    )
   );
 });
 

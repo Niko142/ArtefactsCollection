@@ -8,7 +8,11 @@
       href="https://use.fontawesome.com/releases/v6.6.0/css/all.css"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Коллекция природных артефактов</title>
+    <title>Крупнейшая коллекция природных ископаемых</title>
+    <meta
+      name="description"
+      content="Уникальная коллекция уже насчитывает порядка 11 природных экземпляров: редки породы деревьев, минералов, растений. Поддержите проект – помогите сохранить природное наследие России! Ваши пожертвования идут на научные исследования и экологические программы"
+    />
   </head>
 
   <body>
@@ -16,7 +20,7 @@
       <header class="header" id="header">
         <div class="container">
           <div class="header__logo">
-            <img src="./src/assets/images/logo.svg" alt="Logo" />
+            <img src="./src/assets/images/logo.svg" width="65px" height="20px" alt="Logo" />
           </div>
           <nav class="navbar">
             <ul>
@@ -27,7 +31,7 @@
             </ul>
           </nav>
           <div class="header__features">
-            <button class="search" role="Поиск по наименованиям">
+            <button class="search" aria-label="Поиск по наименованию">
               <svg
                 width="24"
                 height="24"
@@ -53,7 +57,7 @@
                 />
               </svg>
             </button>
-            <button class="login" role="Регистрация на сайте">
+            <button class="login" aria-label="Регистрация на сайте">
               <svg
                 width="24"
                 height="24"
@@ -171,32 +175,38 @@
         <div class="links">
           <ul class="links__block">
             <li>
-              <a href="https://youtube.com" target="_blank"
+              <a href="https://youtube.com" aria-label="Youtube" target="_blank"
                 ><i class="icons-youtube fa-brands fa-youtube"></i
               ></a>
             </li>
             <li>
-              <a href="https://instagram.com" target="_blank"
+              <a
+                href="https://instagram.com"
+                aria-label="Instagram"
+                target="_blank"
                 ><i class="icons-instagram fa-brands fa-instagram"></i
               ></a>
             </li>
             <li>
-              <a href="https://facebook.com" target="_blank"
+              <a
+                href="https://facebook.com"
+                aria-label="Facebook"
+                target="_blank"
                 ><i class="icons-facebook fa-brands fa-square-facebook"></i
               ></a>
             </li>
             <li>
-              <a href="https://x.com" target="_blank"
+              <a href="https://x.com" aria-label="X" target="_blank"
                 ><i class="icons-twitter fa-brands fa-twitter"></i
               ></a>
             </li>
           </ul>
         </div>
-        <div class="rights">
+        <div class="rights" aria-hidden="true">
           <p>f&b ® 2020</p>
         </div>
       </footer>
     </div>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" defer src="/src/main.js"></script>
   </body>
 </html>
