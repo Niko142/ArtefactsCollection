@@ -1,17 +1,17 @@
-// cards
+// Импорты изображений для карточек
 import plant from "@assets/images/slider/plant.png";
 import flower from "@assets/images/slider/flower.png";
 import leaf from "@assets/images/slider/leaf.png";
 import wood from "@assets/images/slider/wood.png";
 
-// novelty
-import moss1 from "@assets/images/gallery/moss_small.png";
-import moss2 from "@assets/images/gallery/moss_big.png";
+// Импорты изображений для галереи
+import mossSmall from "@assets/images/gallery/moss-small.png";
+import mossBig from "@assets/images/gallery/moss-big.png";
 import beam from "@assets/images/gallery/beam.png";
 import hydrangea from "@assets/images/gallery/hydrangea.png";
 import polypody from "@assets/images/gallery/polypody.png";
 import bark from "@assets/images/gallery/bark.png";
-import lilium from "@assets/images/gallery/lilium.png";
+import lily from "@assets/images/gallery/lily.png";
 
 export const cardItems = [
   {
@@ -64,7 +64,7 @@ export const artefactItems = [
   {
     id: 1,
     label: "4.2",
-    image: moss1,
+    image: mossSmall,
     alt: "Small moss",
     width: "110px",
     height: "115px",
@@ -74,7 +74,7 @@ export const artefactItems = [
   {
     id: 2,
     label: "7.2",
-    image: moss2,
+    image: mossBig,
     alt: "Large moss",
     width: "170px",
     height: "150px",
@@ -124,8 +124,8 @@ export const artefactItems = [
   {
     id: 7,
     label: "2.3",
-    image: lilium,
-    alt: "Lilium",
+    image: lily,
+    alt: "lily",
     width: "119px",
     height: "293px",
     x: 54,
