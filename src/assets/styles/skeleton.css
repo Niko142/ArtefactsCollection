@@ -1,0 +1,83 @@
+/* Анимация свечения */
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #dddada 25%, #ddd 50%, #d3d0d0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 2s infinite;
+  border-radius: 12px;
+}
+
+.skeleton__card {
+  max-width: 255px;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.skeleton__content {
+  box-sizing: border-box;
+  min-height: 310px;
+  padding: 16px 16px 24px;
+}
+
+.skeleton--img {
+  border-radius: 0;
+  height: 180px;
+}
+
+.skeleton--title {
+  width: 50%;
+  height: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.skeleton--circle {
+  border-radius: 50%;
+}
+
+.skeleton--text {
+  height: 1rem;
+  margin-bottom: 12px;
+  &:nth-child(2) {
+    width: 90%;
+  }
+
+  &:nth-child(3) {
+    width: 80%;
+  }
+
+  &:nth-child(4) {
+    width: 70%;
+    margin-bottom: 24px;
+  }
+}
+
+.skeleton--button {
+  height: 40px;
+  width: 65%;
+}
+
+.artefact__img {
+  & img {
+    transition: opacity 0.3s ease;
+    &.img--loading {
+      opacity: 0;
+    }
+    &.img--loaded {
+      opacity: 1;
+    }
+  }
+}
+
+.skeleton__gallery {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0;
+}

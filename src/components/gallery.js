@@ -1,28 +1,49 @@
-import { artefactItems } from "@/data/data";
+import { artefactItems } from "@/data/data.js";
+import { createSkeletonWrapper } from "./skeleton";
+import "@assets/styles/skeleton.css";
 
 const galleryWrapper = document.querySelector("figure.novelty__gallery");
 
-const artefactEl = (id, x, y, label, img, alt, width, height) => {
+const artefactElement = ({ id, x, y, label, image, alt, width, height }) => {
   return `
-    <div class='artefact__item item-${id}'>
-        <span class='artefact__indicator' style="left: ${x}px; top: ${y}px">${label}</span>
-        <img src='${img}' alt='${alt}' width=${width} height=${height} loading="lazy"/>
+    <div class="artefact__item item-${id}">
+      <span class="artefact__indicator" style="left: ${x}px; top: ${y}px">${label}</span>
+      <img src="${image}" alt="${alt}" width=${width} height=${height} loading="lazy"/>
     </div>
-    `;
+  `;
 };
 
-artefactItems.map((item) =>
-  galleryWrapper.insertAdjacentHTML(
-    "beforeend",
-    artefactEl(
-      item.id,
-      item.x,
-      item.y,
-      item.label,
-      item.image,
-      item.alt,
-      item.width,
-      item.height
-    )
-  )
-);
+// Показать skeleton-анимацию
+const showSkeletonGallery = () => {
+  galleryWrapper.innerHTML = createSkeletonWrapper();
+};
+
+const loadArtefacts = async () => {
+  // Имитация задержки на 300 ms
+  await new Promise((resolve) => setTimeout(resolve, 300));
+
+  return new Promise((resolve) => {
+    galleryWrapper.innerHTML = "";
+    let loadedItems = 0; // Загруженное количество элементов
+    const totalItems = artefactItems.length; // Общее количество элементов
+
+    artefactItems.forEach((el, index) => {
+      galleryWrapper.insertAdjacentHTML("beforeend", artefactElement(el));
+      const img = galleryWrapper.children[index].querySelector("img");
+
+      const onImageLoad = () => {
+        loaded++;
+        loadedItems === totalItems ? resolve() : null;
+      };
+
+      img.complete ? onImageLoad() : (img.onload = img.onerror = onImageLoad);
+    });
+  });
+};
+
+const initializeGallery = async () => {
+  showSkeletonGallery();
+  await loadArtefacts();
+};
+
+export default initializeGallery;

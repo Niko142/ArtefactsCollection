@@ -1,0 +1,19 @@
+/* Стили пагинации */
+.swiper {
+  overflow: hidden;
+}
+
+.swiper-pagination {
+  align-items: center;
+  position: unset !important;
+  margin-top: 9px;
+}
+
+.swiper-pagination-bullet {
+  background: var(--bg-shade) !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--green-active) !important;
+}
