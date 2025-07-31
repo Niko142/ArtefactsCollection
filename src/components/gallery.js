@@ -32,7 +32,7 @@ const loadArtefacts = async () => {
       const img = galleryWrapper.children[index].querySelector("img");
 
       const onImageLoad = () => {
-        loaded++;
+        loadedItems++;
         loadedItems === totalItems ? resolve() : null;
       };
 
