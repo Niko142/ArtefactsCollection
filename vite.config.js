@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite';
-import path from 'path';
+import { defineConfig } from "vite";
+import path from "path";
 
 export default defineConfig({
-  base: '/ArtefactsCollection/',
+  base: "/ArtefactsCollection/",
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-      '@assets': path.resolve(__dirname, 'src/assets')
+      "@": path.resolve(__dirname, "src"),
+      "@assets": path.resolve(__dirname, "src/assets"),
     },
   },
 });
