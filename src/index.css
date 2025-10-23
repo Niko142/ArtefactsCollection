@@ -292,41 +292,6 @@ button:where(.search, .login) {
   }
 }
 
-/* Стили для артефактов */
-.artefacts {
-  padding-block: 60px;
-  background-color: var(--bg);
-}
-
-.artefact__card {
-  box-sizing: border-box;
-  width: 255px;
-}
-
-.artefact__img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg-shade);
-  padding-block: 30px;
-}
-
-.artefact__content {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  min-height: 313px;
-  border: 1px solid var(--bg-shade);
-  padding: 16px 16px 24px;
-  & h3 {
-    margin-bottom: 8px;
-  }
-  & p {
-    margin-bottom: 10px;
-    color: var(--grey);
-  }
-}
-
 /* Стили для кнопок */
 button[class="artefact__detail"] {
   box-sizing: border-box;
@@ -339,6 +304,7 @@ button[class="artefact__detail"] {
   margin-top: auto;
   padding: 10.5px 28.5px;
   border: 1px solid var(--primary);
+  cursor: pointer;
   outline: 0;
   &:hover {
     background-color: var(--primary);
@@ -390,79 +356,6 @@ button[class="form__btn"] {
     opacity: 0.5;
     cursor: not-allowed;
   }
-}
-
-/* Стили для Novelty */
-.novelty {
-  padding-bottom: 60px;
-  background-color: var(--bg);
-  & h2 {
-    margin-bottom: 33px;
-  }
-}
-
-.novelty__content {
-  display: grid;
-  grid-template-columns: 1fr 255px;
-  gap: 30px;
-}
-
-.novelty__gallery {
-  position: relative;
-  box-sizing: border-box;
-  display: grid;
-  grid-template-columns: 110px 49px 120px 50px 51px 95px 157px 53px 119px;
-  grid-template-rows: 150px 293px;
-  overflow-x: auto;
-  max-width: 1000px;
-  row-gap: 18px;
-  -webkit-overflow-scrolling: touch;
-  padding: 16px;
-  background-color: var(--bg-shade);
-}
-
-.artefact__item {
-  position: relative;
-}
-
-.item-1 {
-  width: 110px;
-  height: 115px;
-}
-
-.item-2 {
-  width: 170px;
-  height: 150px;
-  grid-column: 3 / 5;
-}
-
-.item-3 {
-  width: 423px;
-  height: 150px;
-  grid-column: 6/10;
-}
-
-.item-4 {
-  width: 306px;
-  height: 293px;
-}
-
-.item-5 {
-  width: 153px;
-  height: 293px;
-  grid-column: 4/6;
-}
-
-.item-6 {
-  width: 157px;
-  height: 293px;
-  grid-column: 7/8;
-}
-
-.item-7 {
-  width: 119px;
-  height: 293px;
-  grid-column: 9/10;
 }
 
 span.artefact__indicator {
@@ -522,6 +415,7 @@ aside {
 
 .form__btn {
   align-self: baseline;
+  cursor: pointer;
 }
 
 /* Стили для input */
@@ -625,8 +519,6 @@ i:where(.icons-youtube, .icons-instagram, .icons-facebook, .icons-twitter) {
 }
 
 /* Медиа-запросы формирования адаптивной верстки */
-@media screen and (max-width: 1440px) {
-}
 @media screen and (max-width: 1150px) {
   .header nav {
     display: none;

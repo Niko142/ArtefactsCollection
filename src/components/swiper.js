@@ -1,26 +1,31 @@
-import { cardItems } from "@/data/data.js";
 import Swiper from "swiper";
 import { Pagination } from "swiper/modules";
-import { createSkeletonCard } from "./skeleton";
+
+import { cardItems } from "@/data/card.js";
+
+import { LOADING_DELAY } from "../constants/delay";
+import { loadImages } from "../services/imageLoader";
+import { renderSkeletonCard } from "./skeleton";
+
 import "swiper/css";
 import "swiper/css/pagination";
-import "@assets/styles/skeleton.css";
 import "@assets/styles/swiper.css";
+import "@assets/styles/card.css";
 
 const slider = document.querySelector(".swiper-wrapper");
 
 // Обновленная функция для создания карточки с обработкой загрузки изображений
-const artefactCard = ({ label, image, alt, width, height, title, text }) => {
+const artefactCard = (card) => {
   return `
     <div class="swiper-slide">
       <article class='artefact__card'>
         <div class='artefact__img'>
-          <span class='artefact__indicator' style="left: 16px; top: 16px">${label}</span>
-          <img src='${image}' alt='${alt}' width='${width}' height='${height}' loading="lazy" class="image-loading"/>
+          <span class='artefact__indicator' style="inset: 16px">${card.label}</span>
+          <img src='${card.img}' alt='${card.alt}' width='${card.width}' height='${card.height}' loading="lazy" class="image-loading"/>
         </div>
         <div class='artefact__content'>
-          <h3>${title}</h3>
-          <p>${text}</p>
+          <h3>${card.title}</h3>
+          <p>${card.text}</p>
           <button class='artefact__detail'>Подробнее</button>
         </div>
       </article>
@@ -28,49 +33,26 @@ const artefactCard = ({ label, image, alt, width, height, title, text }) => {
   `;
 };
 
-// Обработчик для показа skeleton-анимации
+// Обработчик для отображения skeleton-анимации
 const showSkeletons = () => {
-  slider.innerHTML = "";
-  for (let i = 0; i < cardItems.length; i++) {
-    slider.insertAdjacentHTML("beforeend", createSkeletonCard());
-  }
+  slider.innerHTML = cardItems.map(() => renderSkeletonCard()).join("");
 };
 
-// Обработчик загрузки настоящих карточек
+// Обработчик загрузки карточек
 const loadCards = async () => {
-  // Имитация задержки на 300 ms
-  await new Promise((resolve) => setTimeout(resolve, 300));
+  // Имитация задержки
+  await new Promise((res) => setTimeout(res, LOADING_DELAY));
 
-  return new Promise((resolve) => {
-    slider.innerHTML = "";
-    let loadedImages = 0; // Загруженные изображения
-    const totalImages = cardItems.length; // Общее кол-во изображений
-
-    cardItems.map((card, index) => {
-      slider.insertAdjacentHTML("beforeend", artefactCard(card));
-
-      // Добавляем обработчик загрузки изображения
-      const img = slider.children[index].querySelector("img");
-
-      const onImageLoad = () => {
-        img.classList.remove("img--loading");
-        img.classList.add("img--loaded");
-        loadedImages++;
-
-        loadedImages === totalImages ? resolve() : null;
-      };
-
-      img.complete ? onImageLoad() : (img.onload = img.onerror = onImageLoad);
-    });
-  });
+  slider.innerHTML = "";
+  await loadImages(cardItems, slider, artefactCard);
 };
 
-// Инициализация swiper-а
-const initializeSlider = async () => {
+// Инициализация слайдера
+export const initSlider = async () => {
   showSkeletons();
 
   // Инициализация Swiper
-  const swiper = new Swiper(".swiper", {
+  new Swiper(".swiper", {
     modules: [Pagination],
     pagination: {
       el: ".swiper-pagination",
@@ -78,19 +60,14 @@ const initializeSlider = async () => {
     },
     slidesPerView: "auto",
 
-    // Не итоговые breakpoints
     breakpoints: {
       475: { slidesPerView: 1 },
       700: { slidesPerView: 2, spaceBetween: 50 },
       1075: { slidesPerView: 3, spaceBetween: 50 },
       1370: { slidesPerView: 4, spaceBetween: 10 },
     },
-    // slidesPerView: 30,
     loop: true,
   });
 
-  // Загрузка полноценных карточек
   await loadCards();
 };
-
-export default initializeSlider;

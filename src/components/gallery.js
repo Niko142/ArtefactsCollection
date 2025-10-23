@@ -1,49 +1,37 @@
-import { artefactItems } from "@/data/data.js";
-import { createSkeletonWrapper } from "./skeleton";
-import "@assets/styles/skeleton.css";
+import { galleryItems } from "@/data/gallery.js";
+
+import { LOADING_DELAY } from "../constants/delay";
+import { loadImages } from "../services/imageLoader";
+import { renderSkeletonGallery } from "./skeleton";
+
+import "@assets/styles/gallery.css";
 
 const galleryWrapper = document.querySelector("figure.novelty__gallery");
 
-const artefactElement = ({ id, x, y, label, image, alt, width, height }) => {
+const artefactItem = (item) => {
   return `
-    <div class="artefact__item item-${id}">
-      <span class="artefact__indicator" style="left: ${x}px; top: ${y}px">${label}</span>
-      <img src="${image}" alt="${alt}" width=${width} height=${height} loading="lazy"/>
+    <div class="artefact__item item-${item.id}">
+      <span class="artefact__indicator" style="left: ${item.x}px; top: ${item.y}px">${item.label}</span>
+      <img src="${item.img}" alt="${item.alt}" width=${item.width} height=${item.height} loading="lazy"/>
     </div>
   `;
 };
 
-// Показать skeleton-анимацию
+// Обработчик для отображения skeleton-анимации
 const showSkeletonGallery = () => {
-  galleryWrapper.innerHTML = createSkeletonWrapper();
+  galleryWrapper.innerHTML = renderSkeletonGallery();
 };
 
+// Обработчик загрузки галереи
 const loadArtefacts = async () => {
-  // Имитация задержки на 300 ms
-  await new Promise((resolve) => setTimeout(resolve, 300));
+  // Имитация задержки
+  await new Promise((res) => setTimeout(res, LOADING_DELAY));
 
-  return new Promise((resolve) => {
-    galleryWrapper.innerHTML = "";
-    let loadedItems = 0; // Загруженное количество элементов
-    const totalItems = artefactItems.length; // Общее количество элементов
-
-    artefactItems.forEach((el, index) => {
-      galleryWrapper.insertAdjacentHTML("beforeend", artefactElement(el));
-      const img = galleryWrapper.children[index].querySelector("img");
-
-      const onImageLoad = () => {
-        loadedItems++;
-        loadedItems === totalItems ? resolve() : null;
-      };
-
-      img.complete ? onImageLoad() : (img.onload = img.onerror = onImageLoad);
-    });
-  });
+  galleryWrapper.innerHTML = "";
+  await loadImages(galleryItems, galleryWrapper, artefactItem);
 };
 
-const initializeGallery = async () => {
+export const initGallery = async () => {
   showSkeletonGallery();
   await loadArtefacts();
 };
-
-export default initializeGallery;

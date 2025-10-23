@@ -1,5 +1,7 @@
+import "@assets/styles/skeleton.css";
+
 // Skeleton-анимация для карточки с артефактами
-export const createSkeletonCard = () => {
+export const renderSkeletonCard = () => {
   return `
     <div class="swiper-slide">
       <div class="skeleton__card">
@@ -17,6 +19,6 @@ export const createSkeletonCard = () => {
 };
 
 // Skeleton-анимация для галереи
-export const createSkeletonWrapper = () => {
+export const renderSkeletonGallery = () => {
   return `<div class="skeleton skeleton__gallery"></div>`;
 };
